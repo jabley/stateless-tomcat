@@ -15,7 +15,7 @@ services:
     command: ['--max_allowed_packet=16M']
 
   app_1:
-    image: jabley/stateless-tomcat:latest
+    image: jabley/stateless-tomcat:standalone
     environment:
       CATALINA_OPTS: -Dsession.size_bytes=${SESSION_SIZE:-1024}
       JPDA_SUSPEND: n
@@ -29,7 +29,7 @@ services:
       - db
 
   app_2:
-    image: jabley/stateless-tomcat:latest
+    image: jabley/stateless-tomcat:standalone
     environment:
       CATALINA_OPTS: -Dsession.size_bytes=${SESSION_SIZE:-1024}
     ports:
@@ -38,7 +38,7 @@ services:
       - db
 
   app_3:
-    image: jabley/stateless-tomcat:latest
+    image: jabley/stateless-tomcat:standalone
     environment:
       CATALINA_OPTS: -Dsession.size_bytes=${SESSION_SIZE:-1024}
     ports:
